@@ -29,7 +29,7 @@ export default function ReportCrime(props) {
                     <ModalBody className='bg-secondary'>
                         <MissingPersonForm />
                     </ModalBody>
-                    <ModalFooter classNam   e='bg-secondary'>
+                    <ModalFooter className='bg-secondary'>
                         {/* <Button color="primary" onClick={toggle1}>Submit</Button>{' '} */}
                         <Button color="secondary" onClick={toggle1}>Close Form</Button>
                     </ModalFooter>

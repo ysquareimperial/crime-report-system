@@ -23,7 +23,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => {
   return (
 
     <div className="container bg-dark text-white">
-      {JSON.stringify(name)}
+      {/* {JSON.stringify(name)} */}
       <Container
         fluid
         className={classNames("content", { "is-open": sidebarIsOpen })}
@@ -39,7 +39,6 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => {
               <Route exact path="/dashboard/settings" component={Settings} />
               <Route exact path="/dashboard/report-crime" component={ReportCrime} />
               <Route exact path="/dashboard/view-reported-crimes" component={ReportedCrimes} />
-              <Route exact path="/dashboard/profile" component={Profile} />
               <Route exact path="/dashboard/crs-admin" component={Admin} />
             </>
           

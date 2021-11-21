@@ -123,7 +123,7 @@ export default function Signup() {
                             }
                             }
                             style={{ width: "100%" }}>Signup</button>
-                        <p className="text-center mt-4" style={{ cursor: 'pointer' }}>Have an existing Account? | <span className="text-primary"><b onClick={() => history.push('/user/signin')}>Login Here!</b></span></p>
+                        <p className="text-center mt-4" style={{ cursor: 'pointer' }}>Have an existing Account? | <span className="text-primary"><b onClick={() => history.push('/')}>Login Here!</b></span></p>
                     </div>
                 </div>
                 <div className="col-md-4">
