@@ -17,7 +17,7 @@ export default function Admin(props) {
     const [name, setName] = useContext(UserContext)
 
     const [search, setSearch] = useState('')
-    
+
 
     const [signup, setSignup] = useState({
         fullName: "",
@@ -105,39 +105,38 @@ export default function Admin(props) {
     }
 
     const rows = []
-        result.forEach((item,i) => {
-           if (item.fullName.toLowerCase().indexOf(search.toLocaleLowerCase()) === -1 &&
+    result.forEach((item, i) => {
+        if (item.fullName.toLowerCase().indexOf(search.toLocaleLowerCase()) === -1 &&
             item.phone.indexOf(search) === -1
-           
-           
-           )return
-rows.push(
-    <tr>
-    <td>{item.id}</td>
-    <td>{item.fullName}</td>
-    <td>{item.nin}</td>
-    <td>{item.phone}</td>
-    <td>{item.email}</td>
-    <td>{item.address}</td>
-    <td><button className="btn btn-primary" style={{ marginRight: 5 }} onClick={() => {
-        toggle()
-        setSignup(p => ({ ...p, id: item.id }))
-    }}><BiEditAlt size="1.3em" /></button>
 
 
-        <button className="btn btn-secondary" onClick={() => {
-            handleDelete(item.id)
-        }}><RiDeleteBin5Fill size="1.3em" /></button>
-    </td>
-</tr>,
-)
-        })
+        ) return
+        rows.push(
+            <tr>
+                <td>{item.id}</td>
+                <td>{item.fullName}</td>
+                <td>{item.nin}</td>
+                <td>{item.phone}</td>
+                <td>{item.email}</td>
+                <td>{item.address}</td>
+                <td><button className="btn btn-primary" style={{ marginRight: 5 }} onClick={() => {
+                    toggle()
+                    setSignup(p => ({ ...p, id: item.id }))
+                }}><BiEditAlt size="1.3em" /></button>
+
+                    <button className="btn btn-secondary" onClick={() => {
+                        handleDelete(item.id)
+                    }}><RiDeleteBin5Fill size="1.3em" /></button>
+                </td>
+            </tr>,
+        )
+    })
     return (
         <>
 
             <Modal isOpen={modal} toggle={toggle} className={className}>
                 <ModalHeader toggle={toggle}>Edit Details</ModalHeader>
-                {JSON.stringify(signup)}
+                {/* {JSON.stringify(signup)} */}
                 <ModalBody>
                     <CustomInput
                         name="fullName"

@@ -61,7 +61,7 @@ export default function Signin() {
 
     return (
         <>
-            {JSON.stringify(name)}
+            {/* {JSON.stringify(name)} */}
             {/* <h3 className="text-left text-white bg-primary p-1">Crime Report System</h3> */}
             <div className="row m-0 p-0 text-white pt-3">
                 <div className="col-md-4"></div>

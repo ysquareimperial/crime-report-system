@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import MissingPersonForm from './MissingPersonForm';
 import MissingVehicleForm from './MissingVehicleForm';
 import { Jumbotron } from 'reactstrap'
+import {BiEditAlt} from 'react-icons/bi'
 import HorrificIncidentForm from './HorrificIncidentForm';
 export default function ReportCrime(props) {
 
@@ -64,18 +65,18 @@ export default function ReportCrime(props) {
                 <div className="col-md-3 text-center border p-4 m-1 jumbotron bg-dark">
                     <h4 class=""><b>Missing Person Form</b></h4>
                     <p class="lead">Click the button below to fill the form</p>
-                    <button className="btn btn-outline-primary" onClick= {  toggle1 }>Fill Form</button>
+                    <button className="btn btn-outline-primary" onClick= {  toggle1 }>Fill Form <BiEditAlt size="1.5em"/></button>
                 </div>
                 <div className="col-md-4 text-center border p-4 m-1 jumbotron bg-dark">
                     <h4 class=""><b>Horrific Incident Form</b></h4>
                     <p class="lead">Click the button below to fill the form</p>
                     <button className="btn btn-outline-primary" style={{ marginTop: 50 }} onClick={toggle2
-                    }>Fill Form</button>
+                    }>Fill Form <BiEditAlt size="1.5em"/></button>
                 </div>
                 <div className="col-md-3 text-center border p-4 m-1 jumbotron bg-dark">
                     <h4 class=""><b>Missing Vehicle Form</b></h4>
                     <p class="lead">Click the button below to fill the form</p>
-                    <button className="btn btn-outline-primary" onClick={toggle3}>Fill Form</button>
+                    <button className="btn btn-outline-primary" onClick={toggle3}>Fill Form <BiEditAlt size="1.5em"/></button>
                 </div>
             </div>
         </>

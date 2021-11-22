@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom'
 import { UserContext } from "../contextApi/UserContext";
 export default function Signup() {
     const [
-       name ,
+        name,
         setName] = useContext(UserContext);
-        
+
     const history = useHistory()
     const [signup, setSignup] = useState({
         fullName: "",
@@ -30,7 +30,7 @@ export default function Signup() {
         })
     }
     const handleSubmit = () => {
-       
+
         let obj = {
             signup
         }
@@ -49,10 +49,10 @@ export default function Signup() {
         }).then(function (response) {
             return response.json()
         }).then((data) => {
-            if(!data.success){
+            if (!data.success) {
                 alert(data.msg)
             }
-            else{
+            else {
                 alert("Registered successfully")
                 localStorage.setItem("key", JSON.stringify(data.token))
                 setName(data.user)
@@ -70,8 +70,8 @@ export default function Signup() {
                 <div className="col-md-4">
 
                 </div>
-                <div className="col-md-4">
-                    <div className="jumbotron bg-secondary pt-2" style={{ width: 400, height: 595  }}>
+                <div className="col-md-4 mt-3">
+                    <div className="jumbotron bg-secondary pt-2" style={{ width: 400, height: 595 }}>
                         <p className="text-center">Crime Report System</p>
                         <h4 className="text-center text-white mb-1 mt-5 pt-1">SignUp</h4>
                         <CustomInput

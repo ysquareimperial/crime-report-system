@@ -6,8 +6,8 @@ export default function Home() {
             <div style={{backgroundColor:"grey"}} className="jumbotron light">
 
             <h2 className="text-center" style={{ marginLeft: 100 }}>Crime Report System (C R S)</h2>
-                <h4 className="text-center" style={{fontWeight:"lighter", lineHeight:"1.5"}}>This system help the citizens report crime and also help the police keep criminal records.
-                    It will also keep an accurate record of those convicted of crimes to help the criminal
+                <h4 className="text-center" style={{fontWeight:"lighter", lineHeight:"1.5"}}>This system helps the citizens to report crimes, it also helps the police to keep criminal records.
+                    It will keep an accurate record of those convicted of crimes to help the criminal
                     justice system have an accurate record for decision making.</h4>
 
                     

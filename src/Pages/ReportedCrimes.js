@@ -5,7 +5,9 @@ import FetchHorrificIncident from './FetchHorrificIncident';
 import FetcHorr from './FetchHorrificIncident';
 import FetchMissingPerson from './FetchMissingPerson';
 import FetchMissingVehicle from './FetchMissingVehicle';
+import {FaEye} from 'react-icons/fa'
 import './Modal.css'
+
 export default function ReportedCrimes(props) {
 
 
@@ -82,15 +84,15 @@ export default function ReportedCrimes(props) {
             <div className="row" style={{ marginLeft: 100 }}>
                 <div className="col-md-3 text-center border p-4 m-1 jumbotron bg-dark">
                     <h4 class=""><b>Missing Person Report</b></h4>
-                    <button className="btn btn-outline-light" onClick={toggle1}>View Report</button>
+                    <button className="btn btn-outline-light" onClick={toggle1}>View Report <FaEye size="1.5em"/></button>
                 </div>
                 <div className="col-md-4 text-center border p-4 m-1 jumbotron bg-dark">
                     <h4 class=""><b>Horrific Incident Report</b></h4>
-                    <button className="btn btn-outline-light" onClick={toggle2}>View Report</button>
+                    <button className="btn btn-outline-light" onClick={toggle2}>View Report <FaEye size="1.5em"/></button>
                 </div>
                 <div className="col-md-3 text-center border p-4 m-1 jumbotron bg-dark">
                     <h4 class=""><b>Missing Vehicle Report</b></h4>
-                    <button className="btn btn-outline-light" onClick={toggle3}>View Report</button>
+                    <button className="btn btn-outline-light" onClick={toggle3}>View Report <FaEye size="1.5em"/></button>
                 </div>
             </div>
         </>
