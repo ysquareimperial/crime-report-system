@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 export default function MissingPersonForm() {
     let form = {
         fullName: "",
@@ -17,28 +17,50 @@ export default function MissingPersonForm() {
     const reset = () => { setMissingPerson(form) }
 
     const submit = () => {
-        reset()
-        let obj = {
-            missingPerson
-        }
-        console.log(obj)
+        const {
+            fullName,
+            address,
+            phone,
+            lastSeen,
+            description,
+            image
+        } = missingPerson
 
-        fetch('http://localhost:9090/missingperson', {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify({
-                ...missingPerson
-            })
-        }).then(function (response) {
-            return response.json()
-        }).then((data) => {
-            console.log(data)
-        }).catch((err) => { console.log(err) })
+        if (fullName === "" ||
+            address === "" ||
+            phone === "" ||
+            lastSeen === "" ||
+            description === "" ||
+            image === "") {
+            alert("Please complete the form!")
+        }
+        else {
+            reset()
+            let obj = {
+                missingPerson
+            }
+            console.log(obj)
+
+            fetch('http://localhost:9090/missingperson', {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    ...missingPerson
+                })
+            }).then(function (response) {
+                return response.json()
+            }).then((data) => {
+                console.log(data)
+            }).catch((err) => { console.log(err) })
+
+            alert("Your Report has been sent successfully, we will contact you soon!")
+        }
     }
     return (
         <>
+            {/* {JSON.stringify(missingPerson)} */}
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
@@ -103,7 +125,7 @@ export default function MissingPersonForm() {
                             onChange={handleChange} />
                     </div>
 
-                    <button className="btn btn-primary" style={{float:'right'}} onClick={submit}>Submit</button>
+                    <button className="btn btn-primary" style={{ float: 'right' }} onClick={submit}>Submit</button>
                 </div>
             </div>
         </>

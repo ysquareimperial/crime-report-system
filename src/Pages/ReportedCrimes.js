@@ -31,15 +31,15 @@ export default function ReportedCrimes(props) {
             .then(data => setResult(data.result))
             .catch(err => console.log(err))
     }
-    
+
     useEffect(() => {
         fetchData()
     })
 
-    
 
 
-    
+
+
     // getUser()
 
     // }, [getUser])
@@ -47,9 +47,9 @@ export default function ReportedCrimes(props) {
         <>
             <div>
                 <Modal size="xl" isOpen={modal1} toggle1={toggle1} >
-                    <ModalHeader className='bg-secondary' toggle1={toggle1}>Missing Person Report</ModalHeader>
+                    <ModalHeader className='bg-secondary' toggle1={toggle1}>Missing Person Report <button className="btn btn-primary" onClick={window.print} style={{ marginLeft: 10 }}>Print Page</button></ModalHeader>
                     <ModalBody className='bg-secondary' >
-                        <FetchMissingPerson/>
+                        <FetchMissingPerson />
                     </ModalBody>
                     <ModalFooter className='bg-secondary'>
                         <Button color="outline-secondary text-white" onClick={toggle1}>Close</Button>
@@ -58,9 +58,9 @@ export default function ReportedCrimes(props) {
             </div>
             <div>
                 <Modal size='xl' isOpen={modal2} toggle2={toggle2} className="customModal">
-                    <ModalHeader className='bg-secondary' toggle2={toggle2}>Horrific Incident Report</ModalHeader>
+                    <ModalHeader className='bg-secondary' toggle2={toggle2}>Horrific Incident Report <button className="btn btn-primary" onClick={window.print} style={{ marginLeft: 10 }}>Print Page</button></ModalHeader>
                     <ModalBody className='bg-secondary' >
-                        <FetchHorrificIncident/>
+                        <FetchHorrificIncident />
                     </ModalBody>
                     <ModalFooter className='bg-secondary' >
                         <Button color="outline-secondary text-white" onClick={toggle2}>Close</Button>
@@ -69,9 +69,9 @@ export default function ReportedCrimes(props) {
             </div>
             <div>
                 <Modal size='xl' isOpen={modal3} toggle3={toggle3} className="customModal">
-                    <ModalHeader className='bg-secondary' toggle3={toggle3}>Missing Vehicle Report</ModalHeader>
+                    <ModalHeader className='bg-secondary' toggle3={toggle3}>Missing Vehicle Report <button className="btn btn-primary" onClick={window.print} style={{ marginLeft: 10 }}>Print Page</button></ModalHeader>
                     <ModalBody className='bg-secondary' >
-                        <FetchMissingVehicle/>
+                        <FetchMissingVehicle />
                     </ModalBody>
                     <ModalFooter className='bg-secondary' >
                         <Button color="outline-secondary text-white" onClick={toggle3}>Close</Button>

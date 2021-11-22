@@ -15,28 +15,45 @@ export default function HorrificIncidentForm() {
     const reset = () => { setHorrificIncident(form) }
 
     const submit = () => {
-        reset()
-        let obj = {
-            horrificIncident
+        const {
+            incidentName,
+            incidentAddress,
+            incidentDescription,
+            incidentImage
+        } = horrificIncident
+        if (incidentName === "" ||
+            incidentAddress === "" ||
+            incidentDescription === "" ||
+            incidentImage === "") {
+            alert("Please complete the form!")
         }
-        console.log(obj)
+        else {
+            reset()
+            let obj = {
+                horrificIncident
+            }
+            console.log(obj)
 
-        fetch('http://localhost:9090/horrificincident', {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify({
-                ...horrificIncident
-            })
-        }).then(function (response) {
-            return response.json()
-        }).then((data) => {
-            console.log(data)
-        }).catch((err) => { console.log(err) })
+            fetch('http://localhost:9090/horrificincident', {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    ...horrificIncident
+                })
+            }).then(function (response) {
+                return response.json()
+            }).then((data) => {
+                console.log(data)
+            }).catch((err) => { console.log(err) })
+            alert("Your Report has been sent successfully, we will contact you soon!")
+        }
+
     }
     return (
         <>
+            {/* {JSON.stringify(horrificIncident)} */}
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
@@ -81,7 +98,7 @@ export default function HorrificIncidentForm() {
                             value={horrificIncident.incidentAddress}
                             onChange={handleChange} />
                     </div>
-                    <button className="btn btn-primary" style={{float:'right'}} onClick={submit}>Submit</button>
+                    <button className="btn btn-primary" style={{ float: 'right' }} onClick={submit}>Submit</button>
 
                 </div>
             </div>

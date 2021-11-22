@@ -7,11 +7,17 @@ import FetchMissingPerson from '../Pages/FetchMissingPerson';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import CustomInput from '../CustomFiles/CustomInput'
 import { UserContext } from '../contextApi/UserContext';
+import { BiEditAlt } from "react-icons/bi"
+import { RiDeleteBin5Fill } from "react-icons/ri"
+// import CustomInput from '../CustomFiles/CustomInput';
 
 
 export default function Admin(props) {
-    
+
     const [name, setName] = useContext(UserContext)
+
+    const [search, setSearch] = useState('')
+    
 
     const [signup, setSignup] = useState({
         fullName: "",
@@ -76,30 +82,62 @@ export default function Admin(props) {
             fetchData()
             alert("Update successful")
         }).catch((err) => { console.log(err) })
+        fetchData()
     }
 
     /////////////////////////////////////
     const handleDelete = (id) => {
+        // alert(id)
         fetch(`http://localhost:9090/delete-user/new?id=${id}`, {
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
             },
             body: JSON.stringify({
-
+                id
             })
-        }).then(function (response) {
-            return response.json()
-        }).then((data) => {
-            console.log(data)
-            fetchData()
-            alert("Deleted successful")
-        }).catch((err) => { console.log(err) })
+        })
+            .then((data) => {
+                console.log(data)
+                fetchData()
+                alert("Deleted successful")
+            }).catch((err) => { console.log(err) })
     }
+
+    const rows = []
+        result.forEach((item,i) => {
+           if (item.fullName.toLowerCase().indexOf(search.toLocaleLowerCase()) === -1 &&
+            item.phone.indexOf(search) === -1
+           
+           
+           )return
+rows.push(
+    <tr>
+    <td>{item.id}</td>
+    <td>{item.fullName}</td>
+    <td>{item.nin}</td>
+    <td>{item.phone}</td>
+    <td>{item.email}</td>
+    <td>{item.address}</td>
+    <td><button className="btn btn-primary" style={{ marginRight: 5 }} onClick={() => {
+        toggle()
+        setSignup(p => ({ ...p, id: item.id }))
+    }}><BiEditAlt size="1.3em" /></button>
+
+
+        <button className="btn btn-secondary" onClick={() => {
+            handleDelete(item.id)
+        }}><RiDeleteBin5Fill size="1.3em" /></button>
+    </td>
+</tr>,
+)
+        })
     return (
         <>
+
             <Modal isOpen={modal} toggle={toggle} className={className}>
                 <ModalHeader toggle={toggle}>Edit Details</ModalHeader>
+                {JSON.stringify(signup)}
                 <ModalBody>
                     <CustomInput
                         name="fullName"
@@ -149,7 +187,15 @@ export default function Admin(props) {
                     }}>Save</button>
                 </ModalBody>
             </Modal>
+
             <h2 style={{ marginLeft: 100 }}>Admin Dashboard</h2>
+            {/* <input
+                name="search"
+                type="text"
+                placeholder="search..."
+                value={search.search}
+                onChange={handleSigninchange}
+            /> */}
             <div>
                 <div className="row mt-5" >
                     <div className="col-md-1"></div>
@@ -214,30 +260,10 @@ export default function Admin(props) {
                                                     <th>Phone</th>
                                                     <th>Email</th>
                                                     <th>Address</th>
-                                                    <th>Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {result.map((item, i) => (
-                                                    <tr>
-                                                        <td>{item.id}</td>
-                                                        <td>{item.fullName}</td>
-                                                        <td>{item.nin}</td>
-                                                        <td>{item.phone}</td>
-                                                        <td>{item.email}</td>
-                                                        <td>{item.address}</td>
-                                                        <td><button className="btn btn-primary" onClick={() => {
-                                                            toggle()
-                                                            setSignup(p => ({ ...p, id: item.id }))
-                                                        }}>Edit</button>
-
-
-                                                            <button className="btn btn-secondary" onClick={() => {
-                                                                handleDelete(item.id)
-                                                            }}>Del</button>
-                                                        </td>
-                                                    </tr>
-                                                ))}
+                                                {rows}
                                             </tbody>
                                         </table>
                                     </Col>
@@ -277,7 +303,7 @@ export default function Admin(props) {
                 </div>
             </div>
             <div>
-               <h5 className="text-center text-danger mt-5"> {!result.length ? <div>No user found</div> : null}</h5>
+                <h5 className="text-center text-danger mt-5"> {!result.length ? <div>No user found</div> : null}</h5>
             </div>
         </>
     )

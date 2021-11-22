@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 export default function MissingVehicleForm() {
     let form = {
         vehicleName: "",
@@ -17,28 +17,49 @@ export default function MissingVehicleForm() {
     const reset = () => { setMissingVehicle(form) }
 
     const submit = () => {
-        reset()
-        let obj = {
-            missingVehicle
-        }
-        console.log(obj)
+        const {
+            vehicleName,
+            vehicleModel,
+            vehiclePlateNo,
+            lastSeen,
+            description,
+            image
+        } = missingVehicle
 
-        fetch('http://localhost:9090/missingvehicle', {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-            },
-            body: JSON.stringify({
-                ...missingVehicle
-            })
-        }).then(function (response) {
-            return response.json()
-        }).then((data) => {
-            console.log(data)
-        }).catch((err) => { console.log(err) })
+        if (vehicleName === "" ||
+            vehicleModel === "" ||
+            vehiclePlateNo === "" ||
+            lastSeen === "" ||
+            description === "" ||
+            image === "") {
+            alert("Please complete the form!")
+        }
+        else {
+            reset()
+            let obj = {
+                missingVehicle
+            }
+            console.log(obj)
+
+            fetch('http://localhost:9090/missingvehicle', {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    ...missingVehicle
+                })
+            }).then(function (response) {
+                return response.json()
+            }).then((data) => {
+                console.log(data)
+            }).catch((err) => { console.log(err) })
+            alert("Your Report has been sent successfully, we will contact you soon!")
+        }
     }
     return (
         <>
+            {/* {JSON.stringify(missingVehicle)} */}
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
@@ -102,7 +123,7 @@ export default function MissingVehicleForm() {
                             value={missingVehicle.description}
                             onChange={handleChange} />
                     </div>
-                    <button className="btn btn-primary" style={{float:'right'}} onClick={submit}>Submit</button>
+                    <button className="btn btn-primary" style={{ float: 'right' }} onClick={submit}>Submit</button>
                 </div>
             </div>
         </>

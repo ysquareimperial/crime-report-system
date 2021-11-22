@@ -13,6 +13,9 @@ import {
 } from "reactstrap";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import { UserContext } from '../../contextApi/UserContext';
+import { FaUserAlt } from 'react-icons/fa'
+import {FaSignOutAlt} from 'react-icons/fa'
+
 
 
 const Topbar = ({ toggleSidebar }) => {
@@ -70,10 +73,10 @@ const Topbar = ({ toggleSidebar }) => {
           null :
           <div>
             <Button color="primary" tag={Link} to={"profile"} style={{ marginLeft: 300 }}>
-              Profile
+            <FaUserAlt size="1.5em"/>
             </Button>
             <Button color="secondary" onClick={logout} style={{ marginLeft: 10 }}>
-              Logout
+              <FaSignOutAlt size="1.5em"/>
             </Button>
           </div>
         }

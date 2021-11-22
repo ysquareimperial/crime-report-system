@@ -3,7 +3,7 @@ export default function FetchHorrificIncident() {
     const [result, setResult] = useState([])
 
     const fetchData = () => {
-        fetch('http://localhost:9090/horrificincident')
+        fetch('http://localhost:9090/horrificincident_get')
             .then(raw => raw.json())
             .then(data => setResult(data.result))
             .catch(err => console.log(err))
@@ -11,7 +11,7 @@ export default function FetchHorrificIncident() {
 
     useEffect(() => {
         fetchData()
-    })
+    }, [])
 
     return (
         <>
@@ -20,10 +20,9 @@ export default function FetchHorrificIncident() {
                     <tr>
                         <th>#</th>
                         <th>Incident Name</th>
-                        <th>Incident Image</th>
+                        {/* <th>Incident Image</th> */}
                         <th>Incident Address</th>
                         <th>Incident Description</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +30,7 @@ export default function FetchHorrificIncident() {
                         <tr>
                             <th>{item.id}</th>
                             <td>{item.incidentName}</td>
-                            <td>Otto</td>
+                            {/* <td>Otto</td> */}
                             <td>{item.incidentAddress}</td>
                             <td>{item.incidentDescription}</td>
                             {/* <button className='btn btn-primary'>Resolve</button> */}
@@ -39,7 +38,7 @@ export default function FetchHorrificIncident() {
                     ))}
                 </tbody>
             </table>
-            <h5 className="text-center mt-5" style={{color:'red'}}> {!result.length ? <div>No data found</div> : null}</h5>
+            <h5 className="text-center mt-5" style={{ color: 'red' }}> {!result.length ? <div>No data found</div> : null}</h5>
         </>
     )
 }

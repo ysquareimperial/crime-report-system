@@ -92,6 +92,7 @@ const App = () => {
 
   return (
     <div className="bg-dark">
+      
       <div className="App wrapper">
         {/* <SideBar toggle={toggleSidebar} isOpen={sidebarIsOpen} /> */}
         <Switch>
@@ -102,20 +103,24 @@ const App = () => {
         {/* <Content /> */}
       </div>
       <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      
+
     </div>
 
   );
