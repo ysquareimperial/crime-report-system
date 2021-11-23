@@ -65,63 +65,69 @@ export default function MissingVehicleForm() {
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
-                        <label>Vehicle Name</label>
+                        <label className="text-white">Vehicle Name</label>
                         <input
                             type="text"
                             class="form-control"
                             name="vehicleName"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingVehicle.vehicleName}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>vehicleModel</label>
+                        <label className="text-white">vehicleModel</label>
                         <input
                             type="text"
                             class="form-control"
                             name="vehicleModel"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingVehicle.vehicleModel}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>vehicle Plate Number</label>
+                        <label className="text-white">vehicle Plate Number</label>
                         <input
                             type="num"
                             class="form-control"
                             name="vehiclePlateNo"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingVehicle.vehiclePlateNo}
                             onChange={handleChange} />
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
-                        <label>Last Seen</label>
+                        <label className="text-white">Last Seen</label>
                         <input
                             type="date"
                             class="form-control"
                             name="lastSeen"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingVehicle.lastSeen}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Vehicle Image</label>
+                        <label className="text-white">Vehicle Image</label>
                         <input
                             type="file"
                             class="form-control"
                             name="image"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingVehicle.image}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Description</label>
+                        <label className="text-white">Description</label>
                         <textarea
                             class="form-control"
                             name="description"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingVehicle.description}
                             onChange={handleChange} />
                     </div>

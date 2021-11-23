@@ -63,31 +63,34 @@ export default function HorrificIncidentForm() {
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
-                        <label>Incident Name</label>
+                        <label className="text-white">Incident Name</label>
                         <input
                             type="text"
                             class="form-control"
                             name="incidentName"
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             placeholder=""
                             value={horrificIncident.incidentName}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Incident Date</label>
+                        <label className="text-white">Incident Date</label>
                         <input
                             type="date"
                             class="form-control"
                             name="incidentDate"
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             placeholder=""
                             value={horrificIncident.incidentDate}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Incident Description</label>
+                        <label className="text-white">Incident Description</label>
                         <textarea
                             type="text"
                             class="form-control"
                             name="incidentDescription"
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             placeholder=""
                             value={horrificIncident.incidentDescription}
                             onChange={handleChange} />
@@ -95,21 +98,23 @@ export default function HorrificIncidentForm() {
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
-                        <label>Incident Image</label>
+                        <label className="text-white">Incident Image</label>
                         <input
                             type="file"
                             class="form-control"
                             name="incidentImage"
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             placeholder=""
                             value={horrificIncident.incidentImage}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Incident Address</label>
+                        <label className="text-white">Incident Address</label>
                         <input
                             type="text"
                             class="form-control"
                             name="incidentAddress"
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             placeholder=""
                             value={horrificIncident.incidentAddress}
                             onChange={handleChange} />

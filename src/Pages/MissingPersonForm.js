@@ -67,63 +67,69 @@ export default function MissingPersonForm() {
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
-                        <label>Full Name</label>
+                        <label className="text-white">Full Name</label>
                         <input
                             type="text"
                             class="form-control"
                             name="fullName"
                             placeholder=""
                             value={missingPerson.fullName}
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Address</label>
+                        <label className="text-white">Address</label>
                         <input
                             type="text"
                             class="form-control"
                             name="address"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingPerson.address}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Phone Number</label>
+                        <label className="text-white">Phone Number</label>
                         <input
                             type="num"
                             class="form-control"
                             name="phone"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingPerson.phone}
                             onChange={handleChange} />
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
-                        <label>Last Seen</label>
+                        <label className="text-white">Last Seen</label>
                         <input
                             type="date"
                             class="form-control"
                             name="lastSeen"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingPerson.lastSeen}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Image</label>
+                        <label className="text-white">Image</label>
                         <input
                             type="file"
                             class="form-control"
                             name="image"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingPerson.image}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
-                        <label>Description</label>
+                        <label className="text-white">Description</label>
                         <textarea
                             class="form-control"
                             name="description"
                             placeholder=""
+                            style={{backgroundColor:"#6c757d", color:"white"}}
                             value={missingPerson.description}
                             onChange={handleChange} />
                     </div>

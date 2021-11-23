@@ -26,7 +26,7 @@ export default function ReportCrime(props) {
             <h2 style={{ marginLeft: 100 }}>Report a Crime</h2>
             <div>
                 <Modal isOpen={modal1} toggle1={toggle1} className={className}>
-                    <ModalHeader className='bg-secondary' toggle1={toggle1}>Missing Person Form</ModalHeader>
+                    <ModalHeader className='bg-secondary text-white' toggle1={toggle1}>Missing Person Form</ModalHeader>
                     <ModalBody className='bg-secondary'>
                         <MissingPersonForm />
                     </ModalBody>
@@ -38,7 +38,7 @@ export default function ReportCrime(props) {
             </div>
             <div>
                 <Modal isOpen={modal2} toggle2={toggle2} className={className}>
-                    <ModalHeader className='bg-secondary' toggle2={toggle2}>HorrificIncident Form</ModalHeader>
+                    <ModalHeader className='bg-secondary text-white' toggle2={toggle2}>HorrificIncident Form</ModalHeader>
                     <ModalBody className='bg-secondary'>
                         <HorrificIncidentForm />
                     </ModalBody>
@@ -50,7 +50,7 @@ export default function ReportCrime(props) {
             </div>
             <div>
                 <Modal isOpen={modal3} toggle3={toggle3} className={className}>
-                    <ModalHeader className='bg-secondary' toggle3={toggle3}>Missing Vehicle Form</ModalHeader>
+                    <ModalHeader className='bg-secondary text-white' toggle3={toggle3}>Missing Vehicle Form</ModalHeader>
                     <ModalBody className='bg-secondary'>
                         <MissingVehicleForm />
                     </ModalBody>
