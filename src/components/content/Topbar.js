@@ -14,7 +14,7 @@ import {
 import { Link, useLocation, useHistory } from "react-router-dom";
 import { UserContext } from '../../contextApi/UserContext';
 import { FaUserAlt } from 'react-icons/fa'
-import {FaSignOutAlt} from 'react-icons/fa'
+import { FaSignOutAlt } from 'react-icons/fa'
 
 
 
@@ -42,7 +42,7 @@ const Topbar = ({ toggleSidebar }) => {
 
         <NavbarToggler onClick={toggleTopbar} />
         <Collapse isOpen={topbarIsOpen} navbar>
-          {location.pathname.includes("/signup")  || location.pathname.includes("/signin") ?
+          {location.pathname.includes("/signup") || location.pathname.includes("/signin") ?
             null :
             <Nav className="" navbar>
               <NavItem>
@@ -69,20 +69,20 @@ const Topbar = ({ toggleSidebar }) => {
           }
         </Collapse>
         {location.pathname.includes('/signin') || location.pathname.includes('/signup')
-        ?
+          ?
           null :
           <div>
             <Button color="primary" tag={Link} to={"profile"} style={{ marginLeft: 300 }}>
-            <FaUserAlt size="1.5em"/>
+              Profile <FaUserAlt size="1.5em" />
             </Button>
             <Button color="secondary" onClick={logout} style={{ marginLeft: 10 }}>
-              <FaSignOutAlt size="1.5em"/>
+              Logout <FaSignOutAlt size="1.5em" />
             </Button>
             {name.role === "admin" &&
-            <Button color="secondary" tag={Link} to={"crs-admin"} style={{ marginLeft: 10 }}>
-              Dashboard
-            </Button>
-}
+              <Button color="secondary" tag={Link} to={"crs-admin"} style={{ marginLeft: 10 }}>
+                Dashboard
+              </Button>
+            }
           </div>
         }
       </Navbar>
