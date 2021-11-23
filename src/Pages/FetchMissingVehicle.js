@@ -1,20 +1,23 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState, useContext } from 'react'
+import { UserContext } from "../contextApi/UserContext";
 export default function FetchMissingVehicle() {
     const [result, setResult] = useState([])
+    const [name, setName] = useContext(UserContext);
 
-    const fetchData = () => {
-        fetch('http://localhost:9090/missingvehicle_get')
+    const fetchData = useCallback(() => {
+        fetch(`http://localhost:9090/missingvehicle_get?email=${name.email}`)
             .then(raw => raw.json())
             .then(data => setResult(data.result))
             .catch(err => console.log(err))
-    }
+    }, [name.email])
 
     useEffect(() => {
         fetchData()
-    },[])
+    }, [fetchData])
 
     return (
         <>
+            {/* {JSON.stringify(result)} */}
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -28,7 +31,7 @@ export default function FetchMissingVehicle() {
                     </tr>
                 </thead>
                 <tbody>
-                    {result.map((item, i) => (
+                    {result && result.map((item, i) => (
                         <tr>
                             {/* {JSON.stringify(item)} */}
 
@@ -44,7 +47,7 @@ export default function FetchMissingVehicle() {
                     ))}
                 </tbody>
             </table>
-            <h5 className="text-center mt-5" style={{color:'red'}}> {!result.length ? <div>No data found</div> : null}</h5>
+            <h5 className="text-center mt-5" style={{ color: 'red' }}> {!result.length && !result.length ? <div>No data found</div> : null}</h5>
         </>
     )
 }

@@ -1,11 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { UserContext } from "../contextApi/UserContext";
 export default function HorrificIncidentForm() {
     let form = {
         incidentName: "",
         incidentAddress: "",
         incidentDescription: "",
-        incidentImage: ""
+        incidentImage: "",
+        incidentDate: ""
     }
+    const [name, setName] = useContext(UserContext);
+
     const [horrificIncident, setHorrificIncident] = useState(form)
 
     const handleChange = ({ target: { name, value } }) => {
@@ -19,18 +23,22 @@ export default function HorrificIncidentForm() {
             incidentName,
             incidentAddress,
             incidentDescription,
-            incidentImage
+            incidentImage,
+            incidentDate
         } = horrificIncident
         if (incidentName === "" ||
             incidentAddress === "" ||
             incidentDescription === "" ||
-            incidentImage === "") {
+            incidentImage === "" ||
+            incidentDate === "") {
             alert("Please complete the form!")
         }
         else {
             reset()
             let obj = {
-                horrificIncident
+                ...horrificIncident,
+                email: name.email
+
             }
             console.log(obj)
 
@@ -39,9 +47,7 @@ export default function HorrificIncidentForm() {
                 headers: {
                     "Content-type": "application/json",
                 },
-                body: JSON.stringify({
-                    ...horrificIncident
-                })
+                body: JSON.stringify(obj)
             }).then(function (response) {
                 return response.json()
             }).then((data) => {
@@ -64,6 +70,16 @@ export default function HorrificIncidentForm() {
                             name="incidentName"
                             placeholder=""
                             value={horrificIncident.incidentName}
+                            onChange={handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label>Incident Date</label>
+                        <input
+                            type="date"
+                            class="form-control"
+                            name="incidentDate"
+                            placeholder=""
+                            value={horrificIncident.incidentDate}
                             onChange={handleChange} />
                     </div>
                     <div className="form-group">
@@ -98,6 +114,7 @@ export default function HorrificIncidentForm() {
                             value={horrificIncident.incidentAddress}
                             onChange={handleChange} />
                     </div>
+
                     <button className="btn btn-primary" style={{ float: 'right' }} onClick={submit}>Submit</button>
 
                 </div>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { UserContext } from "../contextApi/UserContext";
 export default function MissingVehicleForm() {
     let form = {
         vehicleName: "",
@@ -8,6 +9,8 @@ export default function MissingVehicleForm() {
         description: "",
         image: ""
     }
+    const [name, setName] = useContext(UserContext);
+
     const [missingVehicle, setMissingVehicle] = useState(form)
 
     const handleChange = ({ target: { name, value } }) => {
@@ -37,7 +40,8 @@ export default function MissingVehicleForm() {
         else {
             reset()
             let obj = {
-                missingVehicle
+                ...missingVehicle,
+                email:name.email
             }
             console.log(obj)
 
@@ -46,9 +50,7 @@ export default function MissingVehicleForm() {
                 headers: {
                     "Content-type": "application/json",
                 },
-                body: JSON.stringify({
-                    ...missingVehicle
-                })
+                body: JSON.stringify(obj)
             }).then(function (response) {
                 return response.json()
             }).then((data) => {
@@ -59,7 +61,7 @@ export default function MissingVehicleForm() {
     }
     return (
         <>
-            {/* {JSON.stringify(missingVehicle)} */}
+            {/* {JSON.stringify(name)} */}
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
