@@ -78,6 +78,11 @@ const Topbar = ({ toggleSidebar }) => {
             <Button color="secondary" onClick={logout} style={{ marginLeft: 10 }}>
               <FaSignOutAlt size="1.5em"/>
             </Button>
+            {name.role === "admin" &&
+            <Button color="secondary" tag={Link} to={"crs-admin"} style={{ marginLeft: 10 }}>
+              Dashboard
+            </Button>
+}
           </div>
         }
       </Navbar>

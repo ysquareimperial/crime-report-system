@@ -119,12 +119,12 @@ export default function Admin(props) {
                 <td>{item.phone}</td>
                 <td>{item.email}</td>
                 <td>{item.address}</td>
-                <td><button className="btn btn-primary" style={{ marginRight: 5 }} onClick={() => {
+                <td><button className="btn btn-primary" style={{ marginRight: 5, marginBottom: 5 }} onClick={() => {
                     toggle()
                     setSignup(p => ({ ...p, id: item.id }))
                 }}><BiEditAlt size="1.3em" /></button>
 
-                    <button className="btn btn-secondary" onClick={() => {
+                    <button className="btn btn-secondary" style={{ marginRight: 5, marginBottom: 5 }} onClick={() => {
                         handleDelete(item.id)
                     }}><RiDeleteBin5Fill size="1.3em" /></button>
                 </td>
@@ -197,8 +197,7 @@ export default function Admin(props) {
             /> */}
             <div>
                 <div className="row mt-5" >
-                    <div className="col-md-1"></div>
-                    <div className="col-md-10">
+                    <div className="col-md-12">
                         <Nav tabs>
                             <NavItem>
                                 <NavLink
@@ -298,7 +297,7 @@ export default function Admin(props) {
                             </TabPane>
                         </TabContent>
                     </div>
-                    <div className="col-md-1"></div>
+                    
                 </div>
             </div>
             <div>
