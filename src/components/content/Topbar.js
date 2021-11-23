@@ -73,10 +73,10 @@ const Topbar = ({ toggleSidebar }) => {
           null :
           <div>
             <Button color="primary" tag={Link} to={"profile"} style={{ marginLeft: 300 }}>
-              Profile <FaUserAlt size="1.5em" />
+              <FaUserAlt size="1.5em" />
             </Button>
             <Button color="secondary" onClick={logout} style={{ marginLeft: 10 }}>
-              Logout <FaSignOutAlt size="1.5em" />
+              <FaSignOutAlt size="1.5em" />
             </Button>
             {name.role === "admin" &&
               <Button color="secondary" tag={Link} to={"crs-admin"} style={{ marginLeft: 10 }}>
