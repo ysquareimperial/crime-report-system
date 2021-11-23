@@ -9,6 +9,9 @@ import CustomInput from '../CustomFiles/CustomInput'
 import { UserContext } from '../contextApi/UserContext';
 import { BiEditAlt } from "react-icons/bi"
 import { RiDeleteBin5Fill } from "react-icons/ri"
+import AllMissingPerson from '../Pages/AllMissingPerson';
+import AllHorrificIncident from '../Pages/AllHorrificIncident';
+import AllMissingVehicle from '../Pages/AllMissingVehicle';
 // import CustomInput from '../CustomFiles/CustomInput';
 
 
@@ -235,7 +238,7 @@ export default function Admin(props) {
                                     Missing Vehicle
                                 </NavLink>
                             </NavItem>
-                            <NavItem>
+                            {/* <NavItem>
                                 <NavLink
                                     style={{ cursor: 'pointer' }}
                                     className={classnames({ active: activeTab === '4' })}
@@ -243,7 +246,7 @@ export default function Admin(props) {
                                 >
                                     Solved Crimes
                                 </NavLink>
-                            </NavItem>
+                            </NavItem> */}
                         </Nav>
                         <TabContent activeTab={activeTab}>
                             <TabPane tabId="0">
@@ -270,21 +273,24 @@ export default function Admin(props) {
                             <TabPane tabId="1">
                                 <Row>
                                     <Col sm="12">
-                                        <FetchMissingPerson />
+                                        {/* <FetchMissingPerson /> */}
+                                        <AllMissingPerson/>
                                     </Col>
                                 </Row>
                             </TabPane>
                             <TabPane tabId="2">
                                 <Row>
                                     <Col md="12">
-                                        <FetchHorrificIncident />
+                                        {/* <FetchHorrificIncident /> */}
+                                        <AllHorrificIncident/>
                                     </Col>
                                 </Row>
                             </TabPane>
                             <TabPane tabId="3">
                                 <Row>
                                     <Col md="12">
-                                        <FetchMissingVehicle />
+                                        {/* <FetchMissingVehicle /> */}
+                                        <AllMissingVehicle/>
                                     </Col>
                                 </Row>
                             </TabPane>
