@@ -12,6 +12,7 @@ import { RiDeleteBin5Fill } from "react-icons/ri"
 import AllMissingPerson from '../Pages/AllMissingPerson';
 import AllHorrificIncident from '../Pages/AllHorrificIncident';
 import AllMissingVehicle from '../Pages/AllMissingVehicle';
+import { Input } from 'reactstrap';
 // import CustomInput from '../CustomFiles/CustomInput';
 
 
@@ -19,7 +20,7 @@ export default function Admin(props) {
 
     const [name, setName] = useContext(UserContext)
 
-    const [search, setSearch] = useState('')
+    // const [search, setSearch] = useState('')
 
 
     const [signup, setSignup] = useState({
@@ -107,33 +108,69 @@ export default function Admin(props) {
             }).catch((err) => { console.log(err) })
     }
 
-    const rows = []
-    result.forEach((item, i) => {
-        if (item.fullName.toLowerCase().indexOf(search.toLocaleLowerCase()) === -1 &&
-            item.phone.indexOf(search) === -1
+    // const rows = []
+    // result.forEach((item, i) => {
+    //     if (item.fullName.toLowerCase().indexOf(search.toLocaleLowerCase()) === -1 &&
+    //         item.phone.indexOf(search) === -1
 
 
-        ) return
-        rows.push(
-            <tr>
-                <td>{item.id}</td>
-                <td>{item.fullName}</td>
-                <td>{item.nin}</td>
-                <td>{item.phone}</td>
-                <td>{item.email}</td>
-                <td>{item.address}</td>
-                <td><button className="btn btn-primary" style={{ marginRight: 5, marginBottom: 5 }} onClick={() => {
-                    toggle()
-                    setSignup(p => ({ ...p, id: item.id }))
-                }}><BiEditAlt size="1.3em" /></button>
+    //     ) return
+    //     rows.push(
+    //         <tr>
+    //             <td>{item.id}</td>
+    //             <td>{item.fullName}</td>
+    //             <td>{item.nin}</td>
+    //             <td>{item.phone}</td>
+    //             <td>{item.email}</td>
+    //             <td>{item.address}</td>
+    //             <td><button className="btn btn-primary" style={{ marginRight: 5, marginBottom: 5 }} onClick={() => {
+    //                 toggle()
+    //                 setSignup(p => ({ ...p, id: item.id }))
+    //             }}><BiEditAlt size="1.3em" /></button>
 
-                    <button className="btn btn-secondary" style={{ marginRight: 5, marginBottom: 5 }} onClick={() => {
-                        handleDelete(item.id)
-                    }}><RiDeleteBin5Fill size="1.3em" /></button>
-                </td>
-            </tr>,
-        )
-    })
+    //                 <button className="btn btn-secondary" style={{ marginRight: 5, marginBottom: 5 }} onClick={() => {
+    //                     handleDelete(item.id)
+    //                 }}><RiDeleteBin5Fill size="1.3em" /></button>
+    //             </td>
+    //         </tr>,
+    //     )
+    // })
+    const [state, setSearch] = useState({
+        search: "",
+    });
+    const handleChanges = ({ target: { name, value } }) => {
+        setSearch({ [name]: value });
+    };
+
+    let rows = [];
+    result &&
+        result.forEach((item, index) => {
+            if (
+                item.fullName.toLowerCase().indexOf(state.search.toLowerCase()) ===
+                -1
+            ) {
+                return;
+            }
+            rows.push(
+                <tr key={index}>
+                    <td>{item.id}</td>
+                    <td>{item.fullName}</td>
+                    <td>{item.nin}</td>
+                    <td>{item.phone}</td>
+                    <td>{item.email}</td>
+                    <td>{item.address}</td>
+                    <td><button className="btn btn-primary" style={{ marginRight: 5, marginBottom: 5 }} onClick={() => {
+                        toggle()
+                        // setSignup(p => ({ ...p, id: item.id }))
+                    }}><BiEditAlt size="1.3em" /></button>
+
+                        <button className="btn btn-secondary" style={{ marginRight: 5, marginBottom: 5 }} onClick={() => {
+                            handleDelete(item.id)
+                        }}><RiDeleteBin5Fill size="1.3em" /></button>
+                    </td>
+                </tr>,
+            );
+        });
     return (
         <>
 
@@ -252,6 +289,13 @@ export default function Admin(props) {
                             <TabPane tabId="0">
                                 <Row>
                                     <Col sm="12">
+                                        <Input
+                                            type="search"
+                                            name="search"
+                                            placeholder="Search by full name..."
+                                            onChange={handleChanges}
+                                            style={{ marginTop: 5 }}
+                                        />
                                         <table class="table table-dark table-striped">
                                             <thead>
                                                 <tr>
@@ -274,7 +318,7 @@ export default function Admin(props) {
                                 <Row>
                                     <Col sm="12">
                                         {/* <FetchMissingPerson /> */}
-                                        <AllMissingPerson/>
+                                        <AllMissingPerson />
                                     </Col>
                                 </Row>
                             </TabPane>
@@ -282,7 +326,7 @@ export default function Admin(props) {
                                 <Row>
                                     <Col md="12">
                                         {/* <FetchHorrificIncident /> */}
-                                        <AllHorrificIncident/>
+                                        <AllHorrificIncident />
                                     </Col>
                                 </Row>
                             </TabPane>
@@ -290,7 +334,7 @@ export default function Admin(props) {
                                 <Row>
                                     <Col md="12">
                                         {/* <FetchMissingVehicle /> */}
-                                        <AllMissingVehicle/>
+                                        <AllMissingVehicle />
                                     </Col>
                                 </Row>
                             </TabPane>
@@ -303,7 +347,7 @@ export default function Admin(props) {
                             </TabPane>
                         </TabContent>
                     </div>
-                    
+
                 </div>
             </div>
             <div>
